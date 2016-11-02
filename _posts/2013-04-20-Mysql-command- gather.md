@@ -19,7 +19,7 @@ keywords: mysql
 
     `mysql -h110.110.110.110 -u root -p 123;（注:u与root之间可以不用加空格，其它也一样）`
 
-  3.退出MYSQL命令： `exi`t （回车）
+  3.退出MYSQL命令： `exit` （回车）
  
  ### 修改密码
 
@@ -307,12 +307,12 @@ mysql> drop database xhkdb;
 
   例如，建立一个名为MyClass的表，
 
-	|字段名 |数字类型 |数据宽度 |  是否为空 |是否主键      |自动增加 	  |默认值|
-	|------:|:-------:|:-------:|:---------:|:------------:|:----------------:|:-----|
-	|id 	|int 	  |	4   | 	  否 	|primary key   | auto_increment   |	 |
-	|name 	|char 	  |	20  | 	  否 	|  	       |                  |      |
-	|sex 	|int 	  |	4   | 	  否 	|  	       |                  |0     |
-	|degree |double   |	16  |	  是 	|  	       |                  |      |
+|字段名 |数字类型 |数据宽度 |  是否为空 |是否主键      |自动增加 	  |默认值|
+|------:|:-------:|:-------:|:---------:|:------------:|:----------------:|:-----|
+|id 	|int 	  |	4   | 	  否 	|primary key   | auto_increment   |	 |
+|name 	|char 	  |	20  | 	  否 	|  	       |                  |      |
+|sex 	|int 	  |	4   | 	  否 	|  	       |                  |0     |
+|degree |double   |	16  |	  是 	|  	       |                  |      |
 
 > mysql> create table MyClass(
 
@@ -377,10 +377,10 @@ mysql> drop database xhkdb;
 
   下面是一个删除数据前后表的对比。
 
-	|FirstName |LastName | Age|
-	|---------:|:-------:|:---|
-	|Peter 	   |Griffin  | 35 |
-	|Glenn 	   |Quagmire | 33 |
+|FirstName |LastName | Age|
+|---------:|:-------:|:---|
+|Peter 	   |Griffin  | 35 |
+|Glenn 	   |Quagmire | 33 |
 
   下面以PHP代码为例删除 "Persons" 表中所有 LastName='Griffin' 的记录：
 
@@ -399,9 +399,9 @@ mysql> drop database xhkdb;
 ```
   在这次删除之后，表是这样的：
 
-	|FirstName  |LastName	|Age |
-	|----------:|:---------:|:---|
-	|Glenn 	    |Quagmire 	|33  |
+|FirstName  |LastName	|Age |
+|----------:|:---------:|:---|
+|Glenn 	    |Quagmire 	|33  |
 
 **修改表中数据**
 
@@ -580,9 +580,6 @@ insert into teacher values('''',''jack'',''深圳一中'',''1975-12-23'');
 
   注：在建表中
 > 1. 将ID设为长度为3的数字字段:int(3)；并让它每个记录自动加一:auto_increment；并不能为空:not null；而且让他成为主字段primary key。
-
 > 2. 将NAME设为长度为10的字符字段
-
 > 3. 将ADDRESS设为长度50的字符字段，而且缺省值为深圳。
-
 > 4. 将YEAR设为日期字段。
