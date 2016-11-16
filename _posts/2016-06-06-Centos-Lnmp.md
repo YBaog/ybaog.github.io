@@ -1,0 +1,81 @@
+---
+layout: post
+title: Centos之安装 Lnmp 环境 
+categories: Linux
+description: Centos之安装 Lnmp 环境 
+keywords: Centos,Lnmp,Linux
+---
+###安装Nginx
+
+> yum install yum-priorities -y  
+> wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm  
+> rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm  
+> yum install nginx  
+
+> systemctl start nginx.service #启动nginx  
+> systemctl stop nginx.service #停止  
+> systemctl restart nginx.service #重启  
+> systemctl enable nginx.service #设置开机启动
+
+###更改nginx端口号（根据自己需求）
+
+> cd /etc/nginx/conf.d/  
+> vim default.conf  
+> 把listen 80改成listen 81  
+
+ `systemctl restart nginx.service` #重启nginx  
+
+###访问http://ip:81即可看到nginx首页
+
+**下一步安装php-fpm**
+
+`yum install php-fpm`  
+
+> systemctl start php-fpm.service #启动php-fpm  
+
+> systemctl enable php-fpm.service #设置开机启动  
+
+
+###更改nginx配置文件识别php
+
+ `vi /etc/nginx/conf.d/default.conf`，把之前的#给去掉就可以了，顺手改一下fastcgi_param
+
+```php
+    location ~ \.php$ {  
+        root           html;  
+        fastcgi_pass   127.0.0.1:9000;  
+        fastcgi_index  index.php;  
+        fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html/$fastcgi_script_name;  
+        include        fastcgi_params;  
+    }  
+```
+在 /usr/share/nginx/html中新建一个test.PHP  <?php echo 123;?>
+
+访问http://ip:81/test.php即可看到php页面
+
+###负载配置
+
+```
+    upstream site{  
+            server 172.16.170.138;  
+            server 172.16.170.139;  
+    }  
+    server {  
+        listen       80;  
+        server_name  localhost;  
+      
+        #charset koi8-r;  
+        #access_log  /var/log/nginx/log/host.access.log  main;  
+      
+        location / {  
+            root   /usr/share/nginx/html;  
+            index  index.html index.htm;  
+            proxy_pass http://site;  
+        }  
+
+```
+
+
+
+
+
