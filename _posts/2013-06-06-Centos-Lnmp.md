@@ -5,7 +5,7 @@ categories: Linux
 description: Centos之安装 Lnmp 环境 
 keywords: Centos,Lnmp,Linux
 ---
-###安装Nginx
+### 安装Nginx
 
 > yum install yum-priorities -y  
 > wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm  
@@ -17,7 +17,7 @@ keywords: Centos,Lnmp,Linux
 > systemctl restart nginx.service #重启  
 > systemctl enable nginx.service #设置开机启动
 
-###更改nginx端口号（根据自己需求）
+### 更改nginx端口号（根据自己需求）
 
 > cd /etc/nginx/conf.d/  
 > vim default.conf  
@@ -25,7 +25,7 @@ keywords: Centos,Lnmp,Linux
 
  `systemctl restart nginx.service` #重启nginx  
 
-###访问http://ip:81即可看到nginx首页
+### 访问http://ip:81即可看到nginx首页
 
 **下一步安装php-fpm**
 
@@ -36,7 +36,7 @@ keywords: Centos,Lnmp,Linux
 > systemctl enable php-fpm.service #设置开机启动  
 
 
-###更改nginx配置文件识别php
+### 更改nginx配置文件识别php
 
  `vi /etc/nginx/conf.d/default.conf`，把之前的#给去掉就可以了，顺手改一下fastcgi_param
 
@@ -53,7 +53,7 @@ keywords: Centos,Lnmp,Linux
 
 访问http://ip:81/test.php即可看到php页面
 
-###负载配置
+### 负载配置
 
 ```
     upstream site{  

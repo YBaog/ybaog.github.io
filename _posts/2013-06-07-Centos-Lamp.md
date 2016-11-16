@@ -5,7 +5,7 @@ categories: Linux
 description: Centos之安装 Lamp 环境 
 keywords: Centos,Lamp,Linux
 ---
-###配置防火墙
+### 配置防火墙
 
 CentOS 7.0默认使用的是firewall作为防火墙。
 
@@ -52,7 +52,7 @@ CentOS 7.0默认使用的是firewall作为防火墙。
 > systemctl restart httpd.service #重启apache  
 
 
-###测试篇
+### 测试篇
 
 ```
 cd /var/www/html

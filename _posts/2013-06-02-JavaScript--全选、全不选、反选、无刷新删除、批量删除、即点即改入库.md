@@ -6,6 +6,8 @@ description: 全选、全不选、反选、无刷新删除、批量删除、即�
 keywords: JavaScript, YII
 ---
 
+全选、全不选、反选、无刷新删除、批量删除、即点即改入库（在yii框架中操作）
+
 ```html
 <?php    
     header("content-type:text/html;charset=utf-8");    
